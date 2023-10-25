@@ -1,17 +1,25 @@
+let s = 1;
+
 function setup() {
   let myCanvas = createCanvas(400, 400);
   myCanvas.parent("canvas-parent");
+  skin = color(255, 194, 125);
 }
 
 function draw() {
   background(220);
+  drawBackGround();
   drawBearTree();
-  drawSurprise();
+  push();
+  if (drawBearTree >= 0);
+  s = s - 0.001;
+  pop();
+  //drawSurprise();
 }
 
 function drawSurprise() {
   push();
-  translate(300, 250);
+  translate(200, 150);
   noStroke();
   // Body Structure and Design
   push();
@@ -72,6 +80,7 @@ function drawBear() {
 }
 
 function drawTree() {
+  //Figure of Tree
   push();
   translate(150, 400);
   noStroke();
@@ -82,6 +91,9 @@ function drawTree() {
   rotate(-PI / 3);
   rect(52, 5, 126, 175);
   pop();
+  //Figure of Ground
+  fill(105, 255, 157);
+  rect(-200, 400, 800, 300);
 }
 
 function drawBackGround() {
@@ -94,6 +106,11 @@ function drawBackGround() {
 }
 
 function drawBearTree() {
+  push();
+  translate(200, 200);
+  scale(s);
+  translate(-200, -200);
   drawBear();
   drawTree();
+  pop();
 }
