@@ -1,4 +1,5 @@
 let s = 1;
+let rot = 0;
 
 function setup() {
   let myCanvas = createCanvas(400, 400);
@@ -11,10 +12,14 @@ function draw() {
   drawBackGround();
   drawBearTree();
   push();
-  if (drawBearTree >= 0);
-  s = s - 0.001;
+  if (s >= 0) {
+    s = s - 0.001;
+  }
+  rot = rot + 0.05;
   pop();
-  //drawSurprise();
+  if (s <= 0.5) {
+    drawSurprise();
+  }
 }
 
 function drawSurprise() {
@@ -39,6 +44,9 @@ function drawSurprise() {
   pop();
   triangle(-72, 150, 72, 150, 0, 200);
 
+  push();
+  rotate(rot);
+
   // Actual Change To Face
   let r = 90;
   let angle = (3 * PI) / 2;
@@ -52,6 +60,7 @@ function drawSurprise() {
     angle += 0.04;
     r -= 0.2;
   }
+  pop();
   pop();
 }
 
