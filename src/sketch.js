@@ -11,6 +11,7 @@ function draw() {
   background(220);
   drawBackGround();
   drawBearTree();
+  drawFish(200, 200, 0.1);
   push();
   if (s >= 0) {
     s = s - 0.001;
@@ -85,6 +86,53 @@ function drawBear() {
   ellipse(15, -10, 10, 10);
   // Bear nose
   rect(-5, -1, 15, 15, 20, 20);
+  pop();
+}
+
+function drawFish(x, y, s) {
+  push();
+  noStroke();
+  scale(s);
+  rotate(PI / 10);
+  translate(x, y);
+  fill(255, 124, 43);
+
+  //body/tail
+  ellipse(0, 0, 180, 75);
+  triangle(-50, 0, -110, 60, -110, -60);
+
+  fill(196, 97, 35);
+  quad(-105, 48, -105, -48, -73, -15, -73, 15);
+
+  // eyes
+  circle(70, -5, 15);
+  circle(55, -5, 15);
+  fill(255);
+  circle(70, -5, 10);
+  circle(55, -5, 10);
+  fill(0);
+  circle(70, -5, 7);
+  circle(55, -5, 7);
+
+  // gills
+  stroke(196, 97, 35);
+  strokeWeight(3);
+  line(25, -10, 25, 10);
+  line(30, -10, 30, 10);
+  line(35, -10, 35, 10);
+
+  // tail lines
+  stroke(188, 196, 24);
+  strokeWeight(2);
+  line(-105, 40, -73, 10);
+  line(-105, 20, -73, 5);
+  line(-105, 0, -73, 0);
+  line(-105, -20, -73, -5);
+  line(-105, -40, -73, -10);
+
+  //mouth
+  stroke("black");
+  line(60, 15, 75, 10);
   pop();
 }
 
